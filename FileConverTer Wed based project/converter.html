@@ -4,14 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="converter.css">
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body>
-    <div class="converter-container">
-        <h1>File Converter</h1>
-        <input type="file" id="file-input">
-        <button id="convert-btn">Convert</button>
-        <button id="back-btn">Go Back</button>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="converter-container bg-white p-8 rounded-lg shadow-lg text-center fade-in w-full max-w-md">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">File Converter</h1>
+        <div class="mb-4">
+            <label for="file-input" class="block text-gray-700 text-sm font-bold mb-2">
+                Drag & Drop your file or click to select
+            </label>
+            <div class="border-dashed border-2 border-gray-300 p-6 rounded-lg hover:border-blue-500 transition">
+                <input type="file" id="file-input" class="hidden">
+                <p id="file-name" class="text-gray-500">No file selected</p>
+            </div>
+        </div>
+        <div class="mb-6">
+            <label for="format-select" class="block text-gray-700 text-sm font-bold mb-2">Convert to:</label>
+            <select id="format-select" class="w-full p-2 border border-gray-300 rounded-lg">
+                <option value="pdf">PDF</option>
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="gif">GIF</option>
+            </select>
+        </div>
+        <button id="convert-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full transition transform hover:scale-105">
+            Convert
+        </button>
+        <button id="back-btn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg w-full transition">
+            Go Back
+        </button>
     </div>
     <script src="converter.js"></script>
 </body>
