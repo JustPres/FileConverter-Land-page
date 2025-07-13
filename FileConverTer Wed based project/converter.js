@@ -50,27 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
             progressModal.classList.add('modal-enter');
             convertBtn.disabled = true;
 
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 10;
-                progressBar.style.width = `${progress}%`;
-                progressBar.textContent = `${progress}%`;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
 
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    // In a real application, you would trigger the download or show a success message here.
-                    setTimeout(() => {
-                        progressModal.classList.add('modal-leave');
+                    canvas.toBlob((blob) => {
+                        saveAs(blob, `${file.name.split('.')[0]}.${selectedFormat}`);
+
+                        // Hide modal after conversion
                         setTimeout(() => {
-                            progressModal.classList.add('hidden');
-                            progressModal.classList.remove('modal-enter', 'modal-leave');
-                            convertBtn.disabled = false;
-                            progressBar.style.width = `0%`;
-                            progressBar.textContent = `0%`;
-                        }, 300);
-                    }, 1000);
-                }
-            }, 200);
+                            progressModal.classList.add('modal-leave');
+                            setTimeout(() => {
+                                progressModal.classList.add('hidden');
+                                progressModal.classList.remove('modal-enter', 'modal-leave');
+                                convertBtn.disabled = false;
+                                progressBar.style.width = `0%`;
+                                progressBar.textContent = `0%`;
+                            }, 300);
+                        }, 1000);
+
+                    }, `image/${selectedFormat}`);
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
 
         } else {
             // In a real application, you would show an error message to the user.
