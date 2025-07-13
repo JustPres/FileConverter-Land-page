@@ -6,3 +6,7 @@ document.getElementById('convert-btn').addEventListener('click', () => {
         alert('Please select a file to convert.');
     }
 });
+
+document.getElementById('back-btn').addEventListener('click', () => {
+    window.location.href = 'LandingPage.html';
+});
