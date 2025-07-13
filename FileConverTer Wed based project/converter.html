@@ -47,6 +47,12 @@
         <button id="convert-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full transition transform hover:scale-105">
             Convert
         </button>
+        <div id="loading-spinner" class="hidden mt-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+        </div>
+        <div id="progress-container" class="hidden mt-4 w-full bg-gray-200 rounded-full">
+            <div id="progress-bar" class="bg-blue-500 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 0%">0%</div>
+        </div>
         <button id="back-btn" class="mt-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg w-full transition">
             Go Back
         </button>
