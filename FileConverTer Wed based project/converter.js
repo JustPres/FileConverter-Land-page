@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.getElementById('back-btn');
     const formatSelect = document.getElementById('format-select');
     const fileDropArea = document.querySelector('.border-dashed');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const progressContainer = document.getElementById('progress-container');
+    const progressModal = document.getElementById('progress-modal');
     const progressBar = document.getElementById('progress-bar');
 
     fileDropArea.addEventListener('click', () => {
@@ -46,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (file) {
             const selectedFormat = formatSelect.value;
 
-            // Show spinner and progress bar
-            loadingSpinner.classList.remove('hidden');
-            progressContainer.classList.remove('hidden');
+            // Show modal
+            progressModal.classList.remove('hidden');
+            progressModal.classList.add('modal-enter');
             convertBtn.disabled = true;
 
             let progress = 0;
@@ -59,14 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (progress >= 100) {
                     clearInterval(interval);
-                    loadingSpinner.classList.add('hidden');
                     // In a real application, you would trigger the download or show a success message here.
                     setTimeout(() => {
-                        progressContainer.classList.add('hidden');
-                        convertBtn.disabled = false;
-                        progressBar.style.width = `0%`;
-                        progressBar.textContent = `0%`;
-                    }, 2000);
+                        progressModal.classList.add('modal-leave');
+                        setTimeout(() => {
+                            progressModal.classList.add('hidden');
+                            progressModal.classList.remove('modal-enter', 'modal-leave');
+                            convertBtn.disabled = false;
+                            progressBar.style.width = `0%`;
+                            progressBar.textContent = `0%`;
+                        }, 300);
+                    }, 1000);
                 }
             }, 200);
 
