@@ -1,44 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Converter | Modern UI</title>
-    <link rel="stylesheet" href="FileConverTer Wed based project/LandingPage.css">
+    <meta name="description"
+        content="Fast and secure file converter - Convert your files instantly with high-speed processing and no quality loss">
+    <meta name="keywords" content="file converter, convert files, online converter, secure converter">
+    <title>File Converter | Modern & Secure</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="landing-page.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
+
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>FileConverter</h1>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" role="menuitem" aria-current="page">Home</a></li>
+                <li role="none"><a href="#features" role="menuitem">Features</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
-    <!-- Sections -->
-    <section id="home" class="section slide">
-        <h1>Fast & Secure File Converter</h1>
-        <p>Convert your files instantly with high-speed processing and no quality loss.</p>
-        <a href="FileConverTer Wed based project/converter.html" class="cta-button">Try It Now</a>
-    </section>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="section hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title" class="hero-title">Fast & Secure File Converter</h1>
+                <p class="hero-subtitle">Convert your files instantly with high-speed processing and no quality loss.
+                    Support for multiple formats including images, documents, and more.</p>
+                <div class="hero-buttons">
+                    <a href="converter.html" class="cta-button primary" aria-describedby="cta-description">
+                        Try It Now
+                    </a>
+                    <a href="#features" class="cta-button secondary">Learn More</a>
+                </div>
+                <p id="cta-description" class="sr-only">Opens the file converter tool in a new page</p>
+            </div>
+        </section>
 
-    <section id="about" class="section slide">
-        <h2>Why Choose Us?</h2>
-        <p>Our file converter offers lightning-fast conversions, supports multiple formats, and ensures security.</p>
-    </section>
+        <!-- Features Section -->
+        <section id="features" class="section features-section" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title" class="section-title">Why Choose Us?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" aria-labelledby="feature-1">
+                        <div class="feature-icon">⚡</div>
+                        <h3 id="feature-1">Lightning Fast</h3>
+                        <p>Convert files in seconds with our optimized processing engine</p>
+                    </div>
+                    <div class="feature-card" aria-labelledby="feature-2">
+                        <div class="feature-icon">🔒</div>
+                        <h3 id="feature-2">Secure & Private</h3>
+                        <p>Your files are processed locally and never uploaded to our servers</p>
+                    </div>
+                    <div class="feature-card" aria-labelledby="feature-3">
+                        <div class="feature-icon">📁</div>
+                        <h3 id="feature-3">Multiple Formats</h3>
+                        <p>Support for images, documents, and various file formats</p>
+                    </div>
+                    <div class="feature-card" aria-labelledby="feature-4">
+                        <div class="feature-icon">💎</div>
+                        <h3 id="feature-4">No Quality Loss</h3>
+                        <p>Maintain original quality with our advanced conversion algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact" class="section slide">
-        <h2>Get in Touch</h2>
-        <p>Email us at support@fileconverter.com</p>
-    </section>
+        <!-- About Section -->
+        <section id="about" class="section about-section" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title" class="section-title">About Our Service</h2>
+                <div class="about-content">
+                    <p>Our file converter is designed with user privacy and security in mind. All conversions happen
+                        locally in your browser, ensuring your files never leave your device. We support a wide range of
+                        formats and provide fast, reliable conversion services.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">File Formats</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Privacy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">Get in Touch</h2>
+                <div class="contact-content">
+                    <p>Have questions or feedback? We'd love to hear from you!</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:support@fileconverter.com"
+                                aria-label="Email us at support@fileconverter.com">
+                                support@fileconverter.com
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🌐</span>
+                            <a href="https://fileconverter.com" aria-label="Visit our website">
+                                fileconverter.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        &copy; 2025 File Converter. All rights reserved.
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FileConverter</h3>
+                    <p>Fast, secure, and reliable file conversion service</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FileConverter. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="FileConverTer Wed based project/Landing.js"></script>
+    <!-- JavaScript -->
+    <script src="landing.js"></script>
 </body>
+
 </html>

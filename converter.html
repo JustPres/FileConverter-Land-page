@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert your files to different formats with our secure online converter">
+    <title>File Converter | Convert Files Online</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="converter.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="back-link" aria-label="Go back to home page">
+                <span class="back-icon">←</span>
+                Back to Home
+            </a>
+            <h1 class="header-title">File Converter</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <div class="converter-container">
+            <div class="converter-card">
+                <h2 class="converter-title">Convert Your Files</h2>
+                <p class="converter-subtitle">Drag and drop your files or click to browse. All conversions happen
+                    locally in your browser.</p>
+
+                <!-- File Input Section -->
+                <div class="file-input-section">
+                    <label for="file-input" class="file-input-label">
+                        <div class="file-drop-area" id="file-drop-area" role="button" tabindex="0"
+                            aria-describedby="file-instructions">
+                            <div class="drop-icon">📁</div>
+                            <p class="drop-text" id="file-instructions">
+                                Drag & Drop your file here or click to select
+                            </p>
+                            <p class="file-info" id="file-info">No file selected</p>
+                            <input type="file" id="file-input" class="file-input" accept="image/*,.pdf,.doc,.docx,.txt"
+                                aria-describedby="file-instructions">
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Format Selection -->
+                <div class="format-section">
+                    <label for="format-select" class="format-label">Convert to:</label>
+                    <select id="format-select" class="format-select" aria-describedby="format-help">
+                        <option value="">Select format...</option>
+                        <optgroup label="Images">
+                            <option value="jpg">JPG</option>
+                            <option value="png">PNG</option>
+                            <option value="gif">GIF</option>
+                            <option value="webp">WebP</option>
+                        </optgroup>
+                        <optgroup label="Documents">
+                            <option value="pdf">PDF</option>
+                            <option value="txt">TXT</option>
+                        </optgroup>
+                    </select>
+                    <p id="format-help" class="help-text">Choose the output format for your file</p>
+                </div>
+
+                <!-- Convert Button -->
+                <button id="convert-btn" class="convert-btn" disabled aria-describedby="convert-help">
+                    <span class="btn-text">Convert File</span>
+                    <span class="btn-loading" hidden>
+                        <span class="spinner"></span>
+                        Converting...
+                    </span>
+                </button>
+                <p id="convert-help" class="help-text">Select a file and format to enable conversion</p>
+
+                <!-- Progress Section -->
+                <div id="progress-section" class="progress-section" hidden>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <p id="progress-text" class="progress-text">0%</p>
+                    </div>
+                </div>
+
+                <!-- Error Messages -->
+                <div id="error-container" class="error-container" hidden>
+                    <div class="error-message" id="error-message"></div>
+                </div>
+
+                <!-- Success Messages -->
+                <div id="success-container" class="success-container" hidden>
+                    <div class="success-message" id="success-message"></div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <h3>Supported Formats</h3>
+                <div class="format-list">
+                    <div class="format-group">
+                        <h4>Images</h4>
+                        <ul>
+                            <li>JPG, PNG, GIF, WebP</li>
+                            <li>Max size: 10MB</li>
+                        </ul>
+                    </div>
+                    <div class="format-group">
+                        <h4>Documents</h4>
+                        <ul>
+                            <li>PDF, TXT</li>
+                            <li>Max size: 5MB</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="security-info">
+                    <h4>🔒 Privacy & Security</h4>
+                    <p>Your files are processed locally in your browser and never uploaded to our servers.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 FileConverter. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="converter.js"></script>
+</body>
+
+</html>
