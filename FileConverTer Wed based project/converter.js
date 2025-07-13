@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.getElementById('back-btn');
     const formatSelect = document.getElementById('format-select');
     const fileDropArea = document.querySelector('.border-dashed');
-    const progressModal = document.getElementById('progress-modal');
-    const progressBar = document.getElementById('progress-bar');
 
     fileDropArea.addEventListener('click', () => {
         fileInput.click();
@@ -45,9 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (file) {
             const selectedFormat = formatSelect.value;
 
-            // Show modal
-            progressModal.classList.remove('hidden');
-            progressModal.classList.add('modal-enter');
             convertBtn.disabled = true;
 
             const reader = new FileReader();
@@ -62,19 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     canvas.toBlob((blob) => {
                         saveAs(blob, `${file.name.split('.')[0]}.${selectedFormat}`);
-
-                        // Hide modal after conversion
-                        setTimeout(() => {
-                            progressModal.classList.add('modal-leave');
-                            setTimeout(() => {
-                                progressModal.classList.add('hidden');
-                                progressModal.classList.remove('modal-enter', 'modal-leave');
-                                convertBtn.disabled = false;
-                                progressBar.style.width = `0%`;
-                                progressBar.textContent = `0%`;
-                            }, 300);
-                        }, 1000);
-
+                        convertBtn.disabled = false;
                     }, `image/${selectedFormat}`);
                 };
                 img.src = event.target.result;
