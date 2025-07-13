@@ -8,5 +8,5 @@ document.getElementById('convert-btn').addEventListener('click', () => {
 });
 
 document.getElementById('back-btn').addEventListener('click', () => {
-    window.location.href = 'LandingPage.html';
+    window.location.href = '../index.html';
 });
